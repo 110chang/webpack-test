@@ -1,13 +1,4 @@
-!function(e){function t(n){if(r[n])return r[n].exports;var i=r[n]={exports:{},id:n,loaded:!1};return e[n].call(i.exports,i,i.exports,t),i.loaded=!0,i.exports}var n=window.webpackJsonp;window.webpackJsonp=function(o,s){for(var a,u,l=0,c=[];l<o.length;l++)u=o[l],i[u]&&c.push.apply(c,i[u]),i[u]=0;for(a in s)e[a]=s[a];for(n&&n(o,s);c.length;)c.shift().call(null,t);return s[0]?(r[0]=0,t(0)):void 0};var r={},i={1:0};return t.e=function(e,n){if(0===i[e])return n.call(null,t);if(void 0!==i[e])i[e].push(n);else{i[e]=[n];var r=document.getElementsByTagName("head")[0],o=document.createElement("script");o.type="text/javascript",o.charset="utf-8",o.async=!0,o.src=t.p+""+e+"."+({0:"app",2:"foo"}[e]||e)+".bundle.js",r.appendChild(o)}},t.m=e,t.c=r,t.p="/js",t(0)}([/*!*********************!*\
-  !*** multi commons ***!
-  \*********************/
-function(e,t,n){e.exports=n(1)},/*!*************************!*\
-  !*** ./src/js/print.js ***!
-  \*************************/
-function(e,t,n){"use strict";function r(e){return e&&e.__esModule?e:{"default":e}}Object.defineProperty(t,"__esModule",{value:!0}),t["default"]=function(e){(0,o["default"])("body").append("[print] "+e+" dayo.").css("color","#F00")};var i=n(2),o=r(i)},/*!*********************************!*\
-  !*** ./~/jquery/dist/jquery.js ***!
-  \*********************************/
-function(e,t,n){var r,i;/*!
+!function(e){function t(n){if(r[n])return r[n].exports;var i=r[n]={exports:{},id:n,loaded:!1};return e[n].call(i.exports,i,i.exports,t),i.loaded=!0,i.exports}var n=window.webpackJsonp;window.webpackJsonp=function(o,s){for(var a,u,l=0,c=[];l<o.length;l++)u=o[l],i[u]&&c.push.apply(c,i[u]),i[u]=0;for(a in s)e[a]=s[a];for(n&&n(o,s);c.length;)c.shift().call(null,t);return s[0]?(r[0]=0,t(0)):void 0};var r={},i={1:0};return t.e=function(e,n){if(0===i[e])return n.call(null,t);if(void 0!==i[e])i[e].push(n);else{i[e]=[n];var r=document.getElementsByTagName("head")[0],o=document.createElement("script");o.type="text/javascript",o.charset="utf-8",o.async=!0,o.src=t.p+""+e+"."+({0:"app",2:"foo"}[e]||e)+".bundle.js",r.appendChild(o)}},t.m=e,t.c=r,t.p="/js",t(0)}([function(e,t,n){e.exports=n(1)},function(e,t,n){"use strict";function r(e){return e&&e.__esModule?e:{"default":e}}Object.defineProperty(t,"__esModule",{value:!0}),t["default"]=function(e){(0,o["default"])("body").append("[print] "+e+" dayo.").css("color","#F60")};var i=n(2),o=r(i)},function(e,t,n){var r,i;/*!
 	 * jQuery JavaScript Library v2.2.3
 	 * http://jquery.com/
 	 *
