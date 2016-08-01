@@ -1,2 +1,1 @@
-webpackJsonp([2],[function(e,t,u){"use strict";function n(e){return e&&e.__esModule?e:{"default":e}}var o=u(1),a=n(o);(0,a["default"])("Foo webpack")}]);
-//# sourceMappingURL=foo.bundle.js.map
+webpackJsonp([2],{0:function(e,n,t){"use strict";function u(e){return e&&e.__esModule?e:{"default":e}}var o=t(1),c=u(o);t(5),(0,c["default"])("Foo webpack")},5:function(e,n){}});

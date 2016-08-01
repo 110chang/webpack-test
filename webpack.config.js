@@ -1,40 +1,23 @@
 var webpack = require('webpack');
+var merge = require('webpack-merge');
 var CleanWebpackPlugin = require('clean-webpack-plugin');
 var CommonsChunkPlugin = require('webpack/lib/optimize/CommonsChunkPlugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-module.exports = [{
-  cache: true,
+var TARGET = process.env.npm_lifecycle_event;
+
+var common = {
+  cache: false,
   entry: {
-    commons : ['./src/js/print.js'],
+    commons : ['./src/js/print.js', './src/css/commons.sass'],
     app     : './src/js/app.js',
     foo     : './src/js/foo.js'
   },
   output: {
-    filename   : '[name].bundle.js',
-    path       : __dirname + '/dist/js', // 実体のパス
-    publicPath : '/js', // web rootからのパス
+    filename   : 'js/[name].bundle.js',
+    path       : __dirname + '/dist/', // 実体のパス
+    publicPath : '/', // web rootからのパス
   },
-  devtool: 'source-map',
-  devServer: {
-    contentBase: 'dist'
-  },
-  plugins: [
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        warnings: false
-      }
-    }),
-    new CleanWebpackPlugin(['dist/js', 'dist/css'], {
-      root: __dirname,
-      verbose: true,
-      dry: false
-    }),
-    new CommonsChunkPlugin({
-      name: 'commons',
-      minChunks: Infinity
-    })
-  ],
   module: {
     loaders: [{
       test: /\.js$/,
@@ -44,28 +27,50 @@ module.exports = [{
         cacheDirectory: true,
         presets: ['es2015', 'stage-2']
       }
-    }]
-  }
-}, {
-  cache: true,
-  entry: {
-    style: './src/css/style.sass',
-    foo: './src/css/foo.css'
-  },
-  output: {
-    filename : '[name].css',
-    path     : __dirname + '/dist/css'
-  },
-  module: {
-    loaders: [{
+    }, {
       test: /\.css$/,
       loader: ExtractTextPlugin.extract('css')
     }, {
       test: /\.(scss|sass)$/,
       loader: ExtractTextPlugin.extract('css!sass')
     }]
-  },
-  plugins: [
-    new ExtractTextPlugin('[name].css')
-  ]
-}];
+  }
+};
+
+if (TARGET === 'start') {
+  module.exports = merge(common, {
+    devtool: 'source-map',
+    devServer: {
+      contentBase: './dist'
+    },
+    plugins: [
+      new CommonsChunkPlugin({
+        name: 'commons',
+        minChunks: Infinity
+      }),
+      new ExtractTextPlugin('css/[name].css')
+    ],
+  });
+}
+
+if (TARGET === 'build') {
+  module.exports = merge(common, {
+    plugins: [
+      new webpack.optimize.UglifyJsPlugin({
+        compress: {
+          warnings: false
+        }
+      }),
+      new CleanWebpackPlugin(['dist/js', 'dist/css'], {
+        root    : __dirname,
+        verbose : true,
+        dry     : false
+      }),
+      new CommonsChunkPlugin({
+        name: 'commons',
+        minChunks: Infinity
+      }),
+      new ExtractTextPlugin('css/[name].css')
+    ]
+  });
+}
