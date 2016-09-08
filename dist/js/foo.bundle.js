@@ -1,1 +1,1 @@
-webpackJsonp([2],{0:function(e,n,t){"use strict";function u(e){return e&&e.__esModule?e:{"default":e}}var o=t(1),c=u(o);t(5),(0,c["default"])("Foo webpack")},5:function(e,n){}});
+webpackJsonp([2],{0:function(e,n,t){"use strict";function u(e){return e&&e.__esModule?e:{"default":e}}var o=t(1),c=u(o),a=t(6);u(a);(0,c["default"])("Foo webpack")},6:function(e,n){}});

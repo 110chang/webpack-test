@@ -29,9 +29,11 @@ var common = {
       }
     }, {
       test: /\.css$/,
+      // loader: 'style!css?modules'
       loader: ExtractTextPlugin.extract('css')
     }, {
       test: /\.(scss|sass)$/,
+      // loader: 'style!css!sass'
       loader: ExtractTextPlugin.extract('css!sass')
     }]
   }
